@@ -41,6 +41,8 @@ namespace testprogaforms {
 
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::TextBox^ textBox;
+
 	protected:
 
 	private:
@@ -60,6 +62,7 @@ namespace testprogaforms {
 			this->lbl_1 = (gcnew System::Windows::Forms::Label());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->textBox = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// btn_1
@@ -86,10 +89,11 @@ namespace testprogaforms {
 			this->checkBox1->AutoSize = true;
 			this->checkBox1->Location = System::Drawing::Point(91, 235);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(113, 24);
+			this->checkBox1->Size = System::Drawing::Size(104, 24);
 			this->checkBox1->TabIndex = 2;
-			this->checkBox1->Text = L"checkBox1";
+			this->checkBox1->Text = L"checkBox";
 			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
 			// 
 			// radioButton1
 			// 
@@ -102,12 +106,21 @@ namespace testprogaforms {
 			this->radioButton1->Text = L"radioButton1";
 			this->radioButton1->UseVisualStyleBackColor = true;
 			// 
+			// textBox
+			// 
+			this->textBox->Location = System::Drawing::Point(239, 233);
+			this->textBox->Name = L"textBox";
+			this->textBox->Size = System::Drawing::Size(220, 26);
+			this->textBox->TabIndex = 4;
+			this->textBox->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox_TextChanged);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(1456, 603);
+			this->Controls->Add(this->textBox);
 			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->lbl_1);
@@ -122,5 +135,17 @@ namespace testprogaforms {
 	private: System::Void btn_1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->lbl_1->Text = "SOME TEXT";
 	}
+private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->checkBox1->Checked)
+		this->btn_1->Width = 300;
+	else 
+		this->btn_1->Width = 200;
+}
+private: System::Void textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->textBox->Text == "Blue")
+		this->btn_1->BackColor = System::Drawing::Color::Blue;
+	else if (this->textBox->Text == "Red")
+		this->btn_1->BackColor = System::Drawing::Color::Red;
+}
 };
 }

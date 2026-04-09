@@ -34,9 +34,13 @@ namespace testprogaforms {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ btn_1;
+	protected:
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::Button^ btn_1;
 	protected:
 
 	private:
@@ -52,29 +56,30 @@ namespace testprogaforms {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btn_1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
-			// button1
+			// btn_1
 			// 
-			this->button1->Location = System::Drawing::Point(91, 104);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(368, 88);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->btn_1->Location = System::Drawing::Point(91, 104);
+			this->btn_1->Name = L"btn_1";
+			this->btn_1->Size = System::Drawing::Size(368, 88);
+			this->btn_1->TabIndex = 0;
+			this->btn_1->Text = L"Нажми меня";
+			this->btn_1->UseVisualStyleBackColor = true;
+			this->btn_1->Click += gcnew System::EventHandler(this, &MyForm::btn_1_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(87, 52);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(51, 20);
+			this->label1->Size = System::Drawing::Size(112, 20);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"label1";
+			this->label1->Text = L"Просто текст";
 			// 
 			// checkBox1
 			// 
@@ -86,15 +91,27 @@ namespace testprogaforms {
 			this->checkBox1->Text = L"checkBox1";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(91, 278);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(126, 24);
+			this->radioButton1->TabIndex = 3;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"radioButton1";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(1456, 603);
+			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->btn_1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
@@ -102,7 +119,7 @@ namespace testprogaforms {
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btn_1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+};
 }

@@ -35,12 +35,12 @@ namespace testprogaforms {
 			}
 		}
 	private: System::Windows::Forms::Button^ btn_1;
+	private: System::Windows::Forms::Label^ lbl_1;
 	protected:
 
-	private: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
-	private: System::Windows::Forms::Button^ btn_1;
 	protected:
 
 	private:
@@ -57,7 +57,7 @@ namespace testprogaforms {
 		void InitializeComponent(void)
 		{
 			this->btn_1 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lbl_1 = (gcnew System::Windows::Forms::Label());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
@@ -72,14 +72,14 @@ namespace testprogaforms {
 			this->btn_1->UseVisualStyleBackColor = true;
 			this->btn_1->Click += gcnew System::EventHandler(this, &MyForm::btn_1_Click);
 			// 
-			// label1
+			// lbl_1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(87, 52);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(112, 20);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Просто текст";
+			this->lbl_1->AutoSize = true;
+			this->lbl_1->Location = System::Drawing::Point(87, 52);
+			this->lbl_1->Name = L"lbl_1";
+			this->lbl_1->Size = System::Drawing::Size(112, 20);
+			this->lbl_1->TabIndex = 1;
+			this->lbl_1->Text = L"Просто текст";
 			// 
 			// checkBox1
 			// 
@@ -110,7 +110,7 @@ namespace testprogaforms {
 			this->ClientSize = System::Drawing::Size(1456, 603);
 			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->checkBox1);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->lbl_1);
 			this->Controls->Add(this->btn_1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
@@ -120,6 +120,7 @@ namespace testprogaforms {
 		}
 #pragma endregion
 	private: System::Void btn_1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->lbl_1->Text = "SOME TEXT";
 	}
 };
 }

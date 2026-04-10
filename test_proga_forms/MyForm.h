@@ -84,6 +84,8 @@ namespace testprogaforms {
 
 	private: System::Windows::Forms::Button^ btn_zero;
 
+	private: int first_num;
+	private: char user_action;
 
 	protected:
 
@@ -263,6 +265,7 @@ namespace testprogaforms {
 			this->btn_slash->TabIndex = 10;
 			this->btn_slash->Text = L"/";
 			this->btn_slash->UseVisualStyleBackColor = false;
+			this->btn_slash->Click += gcnew System::EventHandler(this, &MyForm::btn_slash_Click);
 			// 
 			// btn_ymno
 			// 
@@ -278,6 +281,7 @@ namespace testprogaforms {
 			this->btn_ymno->TabIndex = 14;
 			this->btn_ymno->Text = L"*";
 			this->btn_ymno->UseVisualStyleBackColor = false;
+			this->btn_ymno->Click += gcnew System::EventHandler(this, &MyForm::btn_ymno_Click);
 			// 
 			// btn_9
 			// 
@@ -292,6 +296,7 @@ namespace testprogaforms {
 			this->btn_9->TabIndex = 13;
 			this->btn_9->Text = L"9";
 			this->btn_9->UseVisualStyleBackColor = false;
+			this->btn_9->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_8
 			// 
@@ -306,6 +311,7 @@ namespace testprogaforms {
 			this->btn_8->TabIndex = 12;
 			this->btn_8->Text = L"8";
 			this->btn_8->UseVisualStyleBackColor = false;
+			this->btn_8->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_7
 			// 
@@ -321,6 +327,7 @@ namespace testprogaforms {
 			this->btn_7->Tag = L"";
 			this->btn_7->Text = L"7";
 			this->btn_7->UseVisualStyleBackColor = false;
+			this->btn_7->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_minus
 			// 
@@ -336,6 +343,7 @@ namespace testprogaforms {
 			this->btn_minus->TabIndex = 18;
 			this->btn_minus->Text = L"-";
 			this->btn_minus->UseVisualStyleBackColor = false;
+			this->btn_minus->Click += gcnew System::EventHandler(this, &MyForm::btn_minus_Click);
 			// 
 			// btn_6
 			// 
@@ -350,6 +358,7 @@ namespace testprogaforms {
 			this->btn_6->TabIndex = 17;
 			this->btn_6->Text = L"6";
 			this->btn_6->UseVisualStyleBackColor = false;
+			this->btn_6->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_5
 			// 
@@ -364,6 +373,7 @@ namespace testprogaforms {
 			this->btn_5->TabIndex = 16;
 			this->btn_5->Text = L"5";
 			this->btn_5->UseVisualStyleBackColor = false;
+			this->btn_5->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_4
 			// 
@@ -378,6 +388,7 @@ namespace testprogaforms {
 			this->btn_4->TabIndex = 15;
 			this->btn_4->Text = L"4";
 			this->btn_4->UseVisualStyleBackColor = false;
+			this->btn_4->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_plus
 			// 
@@ -393,6 +404,7 @@ namespace testprogaforms {
 			this->btn_plus->TabIndex = 22;
 			this->btn_plus->Text = L"+";
 			this->btn_plus->UseVisualStyleBackColor = false;
+			this->btn_plus->Click += gcnew System::EventHandler(this, &MyForm::btn_plus_Click);
 			// 
 			// btn_3
 			// 
@@ -407,6 +419,7 @@ namespace testprogaforms {
 			this->btn_3->TabIndex = 21;
 			this->btn_3->Text = L"3";
 			this->btn_3->UseVisualStyleBackColor = false;
+			this->btn_3->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_2
 			// 
@@ -421,6 +434,7 @@ namespace testprogaforms {
 			this->btn_2->TabIndex = 20;
 			this->btn_2->Text = L"2";
 			this->btn_2->UseVisualStyleBackColor = false;
+			this->btn_2->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_11
 			// 
@@ -435,6 +449,7 @@ namespace testprogaforms {
 			this->btn_11->TabIndex = 19;
 			this->btn_11->Text = L"1";
 			this->btn_11->UseVisualStyleBackColor = false;
+			this->btn_11->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// btn_ravno
 			// 
@@ -450,6 +465,7 @@ namespace testprogaforms {
 			this->btn_ravno->TabIndex = 26;
 			this->btn_ravno->Text = L"=";
 			this->btn_ravno->UseVisualStyleBackColor = false;
+			this->btn_ravno->Click += gcnew System::EventHandler(this, &MyForm::btn_ravno_Click);
 			// 
 			// btn_dot
 			// 
@@ -478,6 +494,7 @@ namespace testprogaforms {
 			this->btn_zero->TabIndex = 23;
 			this->btn_zero->Text = L"0";
 			this->btn_zero->UseVisualStyleBackColor = false;
+			this->btn_zero->Click += gcnew System::EventHandler(this, &MyForm::btn_number_click);
 			// 
 			// MyForm
 			// 
@@ -539,13 +556,63 @@ private: System::Void textBox_TextChanged(System::Object^ sender, System::EventA
 private: System::Void btn_exit_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 } 
+
+private: System::Void btn_number_click(System::Object^ sender, System::EventArgs^ e) {
+	Button^ button = safe_cast <Button^>(sender);
+	
+	if (this->lbl_result->Text == "0")
+		this->lbl_result->Text = button->Text;
+	else
+		this->lbl_result->Text = this->lbl_result->Text + button->Text;
+	}
+
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void btn_ac_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void btn_plus_minus_Click(System::Object^ sender, System::EventArgs^ e) {
+	math_action('-');
 }
 private: System::Void btn_procent_Click(System::Object^ sender, System::EventArgs^ e) {
+	math_action('%');
 }
+private: System::Void btn_slash_Click(System::Object^ sender, System::EventArgs^ e) {
+	math_action('/');
+}
+private: System::Void btn_ymno_Click(System::Object^ sender, System::EventArgs^ e) {
+	math_action('*');
+}
+private: System::Void btn_minus_Click(System::Object^ sender, System::EventArgs^ e) {
+	math_action('-');
+}
+private: System::Void btn_plus_Click(System::Object^ sender, System::EventArgs^ e) {
+	math_action('+');
+}
+	private: System::Void btn_ravno_Click(System::Object^ sender, System::EventArgs^ e) {
+		int second = System::Convert::ToInt32(this->lbl_result->Text);
+		int res;
+		switch (this->user_action) {
+		case '+': res = this->first_num + second;
+			break;
+		case '-': res = this->first_num - second;
+			break;
+		case '*': res = this->first_num * second;
+			break;
+		case '/': res = this->first_num / second;
+			break;
+		}
+
+		this->lbl_result->Text = System::Convert::ToString(res);
+}
+
+private: System::Void math_action(char action) {
+	this->first_num =  System::Convert::ToInt32(this->lbl_result->Text);
+	this->user_action = action;
+	this->lbl_result->Text = "0";
+
+
+}
+
+
 };
 }
